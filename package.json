@@ -10,6 +10,7 @@
     "coverage": "vitest run --coverage"
   },
   "dependencies": {
+    "@tanstack/react-query": "^4.28.0",
     "boostrap": "^2.0.0",
     "bootstrap": "^5.2.3",
     "firebase": "^9.18.0",
