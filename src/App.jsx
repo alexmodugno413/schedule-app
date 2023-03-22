@@ -1,43 +1,59 @@
 import { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Banner from './components/Banner';
+import CourseList from './components/CourseList';
+import Card from 'react-bootstrap/Card';
+import 'bootstrap/dist/css/bootstrap.css';
 
 const App = () => {
   const [count, setCount] = useState(0);
 
+  const schedule = {
+    "title": "CS Courses for 2018-2019",
+    "courses": {
+      "F101": {
+        "term": "Fall",
+        "number": "101",
+        "meets": "MWF 11:00-11:50",
+        "title": "Computer Science: Concepts, Philosophy, and Connections"
+      },
+      "F110": {
+        "term": "Fall",
+        "number": "110",
+        "meets": "MWF 10:00-10:50",
+        "title": "Intro Programming for non-majors"
+      },
+      "F111": {
+        "term": "Fall",
+        "number": "111",
+        "meets": "MWF 12:00-12:50",
+        "title": "Fundamentals of Computer Programming I"
+      },
+      "W111": {
+        "term": "Winter",
+        "number": "111",
+        "meets": "MWF 12:00-12:50",
+        "title": "Fundamentals of Computer Programming I"
+      },
+      "F211": {
+        "term": "Fall",
+        "number": "211",
+        "meets": "MWF 1:00-1:50",
+        "title": "Fundamentals of Computer Programming II"
+      },
+    }
+    
+  };
+
+  const today = new Date();
+  const day = today.toLocaleString([], {weekday: 'long'});
+  const date = today.toLocaleDateString([], {dateStyle: 'long'})
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button onClick={() => setCount(count => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.jsx</code> and save to test hot module replacement (HMR).
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
+      <Banner title={schedule.title} />
+      <CourseList courses={schedule.courses} />
     </div>
   );
 };
