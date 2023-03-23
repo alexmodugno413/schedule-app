@@ -2,9 +2,8 @@ import { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Banner from './components/Banner';
-import CourseList from './components/CourseList';
-import Card from 'react-bootstrap/Card';
 import 'bootstrap/dist/css/bootstrap.css';
+import TermPage from './components/TermPage';
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { useJsonQuery } from './utilities/fetch';
@@ -21,7 +20,7 @@ const Main = () => {
   return (
     <div>
       <Banner title={data.title} />
-      <CourseList courses={data.courses} />
+      <TermPage courseData={data.courses} />
     </div>
   ) 
 
